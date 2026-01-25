@@ -52,7 +52,7 @@ export default function LoginPage() {
             </div>
             <div>
               <CardHeader className="p-0">
-                <CardTitle>Free Vet</CardTitle>
+                <CardTitle>Ücretsiz Veteriner</CardTitle>
                 <CardDescription>
                   Veteriner bulmak veya veteriner olarak yardımcı olmak için
                   giriş yap.

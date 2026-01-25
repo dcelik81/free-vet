@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Free Vet",
+  title: "Ücretsiz Veteriner",
   description: "Kullanıcıları veterinerlerle buluşturan bir platform.",
 };
 

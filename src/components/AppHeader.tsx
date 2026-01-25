@@ -41,7 +41,7 @@ export function AppHeader() {
     <header className="border-b border-border bg-background">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
         <Link href={homeHref} className="text-sm font-semibold tracking-tight">
-          Free Vet
+          Ücretsiz Veteriner
         </Link>
 
         <nav className="flex items-center gap-2">

@@ -36,7 +36,7 @@ export default function Home() {
                 <HeartHandshake className="h-5 w-5" />
               </div>
               <div>
-                <CardTitle>Free Vet</CardTitle>
+                <CardTitle>Ücretsiz Veteriner</CardTitle>
                 <CardDescription>
                   Kullanıcıları veterinerlerle buluşturan bir platform.
                 </CardDescription>
