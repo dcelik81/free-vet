@@ -14,6 +14,7 @@ import {
   Building2,
   CircleUser,
   ImagePlus,
+  MapPin,
   Send,
   Stethoscope,
   X,
@@ -64,6 +65,12 @@ function VetDetailInner({ uid }: { uid?: string }) {
     if (!vet) return "";
     return [vet.city, vet.province, vet.country].filter(Boolean).join(", ");
   }, [vet]);
+
+  const mapUrl = useMemo(() => {
+    if (!vet?.clinicAddress) return null;
+    const encodedAddress = encodeURIComponent(vet.clinicAddress);
+    return `https://maps.google.com/maps?q=${encodedAddress}&output=embed&zoom=15`;
+  }, [vet?.clinicAddress]);
 
   function handleImageSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []);
@@ -232,12 +239,37 @@ function VetDetailInner({ uid }: { uid?: string }) {
 
                   {/* Clinic Address */}
                   {vet.clinicAddress ? (
-                    <div className="mt-4 rounded-lg border border-border bg-muted/50 p-3">
-                      <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                        <Building2 className="h-4 w-4" />
-                        Klinik adresi
+                    <div className="mt-4 space-y-3">
+                      <div className="rounded-lg border border-border bg-muted/50 p-3">
+                        <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                          <Building2 className="h-4 w-4" />
+                          Klinik adresi
+                        </div>
+                        <p className="mt-1 text-sm">{vet.clinicAddress}</p>
                       </div>
-                      <p className="mt-1 text-sm">{vet.clinicAddress}</p>
+
+                      {/* Google Maps Embed */}
+                      {mapUrl ? (
+                        <div className="rounded-lg border border-border overflow-hidden">
+                          <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 border-b border-border">
+                            <MapPin className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-xs font-medium text-muted-foreground">
+                              Haritada göster
+                            </span>
+                          </div>
+                          <iframe
+                            src={mapUrl}
+                            width="100%"
+                            height="300"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full"
+                            title="Klinik konumu"
+                          />
+                        </div>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>
