@@ -25,8 +25,8 @@ function VetsInner() {
     const unsub = onSnapshot(q, (snap) => {
       setVets(
         snap.docs.map((d) => ({
-          uid: (d.data() as Partial<UserProfile>).uid ?? d.id,
           ...(d.data() as UserProfile),
+          uid: (d.data() as Partial<UserProfile>).uid ?? d.id,
         })),
       );
       setLoading(false);

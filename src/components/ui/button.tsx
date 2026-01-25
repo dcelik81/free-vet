@@ -49,16 +49,19 @@ export function Button({
     const onlyChild = React.Children.only(children);
     if (!React.isValidElement(onlyChild)) return null;
 
-    return React.cloneElement(onlyChild, {
-      ...rest,
-      className: cn(
-        base,
-        variants[variant],
-        sizes[size],
-        className,
-        onlyChild.props.className,
-      ),
-    });
+    return React.cloneElement(
+      onlyChild,
+      {
+        ...rest,
+        className: cn(
+          base,
+          variants[variant],
+          sizes[size],
+          className,
+          (onlyChild.props as { className?: string }).className,
+        ),
+      } as React.HTMLAttributes<HTMLElement>,
+    );
   }
 
   return (
