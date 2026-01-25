@@ -1,0 +1,5 @@
+{
+  "name": "Type Check",
+  "command": "bunx tsc --noEmit",
+  "description": "Run TypeScript type checking without emitting files"
+}

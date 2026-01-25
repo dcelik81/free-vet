@@ -1,0 +1,5 @@
+{
+  "name": "Build Project",
+  "command": "bun run build",
+  "description": "Build the Next.js application for production"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Start Dev Server",
+  "command": "bun run dev",
+  "description": "Start Next.js development server on http://localhost:3000",
+  "isBackground": true
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Lint Only",
+  "command": "bun run lint",
+  "description": "Run Biome lint checks without auto-fixing"
+}

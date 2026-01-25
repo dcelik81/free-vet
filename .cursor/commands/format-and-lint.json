@@ -1,0 +1,5 @@
+{
+  "name": "Format & Lint",
+  "command": "bunx biome check --write .",
+  "description": "Format code with Biome and fix auto-fixable lint issues"
+}
