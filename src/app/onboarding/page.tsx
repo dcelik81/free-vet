@@ -52,7 +52,12 @@ function OnboardingInner() {
     setCountry(profile.country ?? "");
     setProvince(profile.province ?? "");
     setCity(profile.city ?? "");
-    setClinicAddress(profile.clinicAddress ?? "");
+    // Only load clinic address if role is vet
+    if (profile.role === "vet") {
+      setClinicAddress(profile.clinicAddress ?? "");
+    } else {
+      setClinicAddress("");
+    }
   }, [profile]);
 
   useEffect(() => {
@@ -171,7 +176,10 @@ function OnboardingInner() {
                 <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <button
                     type="button"
-                    onClick={() => setRole("user")}
+                    onClick={() => {
+                      setRole("user");
+                      setClinicAddress("");
+                    }}
                     className={cn(
                       "rounded-xl border px-4 py-3 text-left text-sm transition-colors",
                       role === "user"
