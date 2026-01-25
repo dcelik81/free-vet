@@ -1,0 +1,15 @@
+---
+description: Core repo conventions (Next.js App Router, bun+biome, shadcn light-only, Firebase client-only)
+alwaysApply: true
+---
+
+# Free Vet (hackathon) — core conventions
+
+- Use **bun** for scripts and installs (`bun add`, `bun run lint`).
+- Use **Biome** for formatting/linting; after edits run: `bunx biome check --write .` then `bun run lint`.
+- **Light mode only**: do not add dark mode (`dark:` classes, `prefers-color-scheme` CSS, or theme toggles).
+- UI should be **shadcn-style** using components in `src/components/ui/*` (Button/Card/Input/Textarea).
+- Use **Firebase client SDK only** (no `firebase-admin`, no session cookies/middleware auth).
+- Firebase config must come from env (`NEXT_PUBLIC_FIREBASE_*`) in `src/lib/firebase.ts`.
+- Prefer imports via `@/…` (see `tsconfig.json` paths).
+- Interface will be all in Turkish.

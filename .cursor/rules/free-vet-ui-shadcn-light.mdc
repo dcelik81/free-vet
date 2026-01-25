@@ -1,0 +1,17 @@
+---
+description: UI conventions (shadcn-style components, light-only Tailwind)
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# UI conventions (shadcn-style, light-only)
+
+- Use `bg-background`, `text-foreground`, `border-border`, `text-muted-foreground`, etc. (CSS vars in `src/app/globals.css`).
+- Prefer `src/components/ui/*` primitives over hand-rolled button/input classes.
+- Do not introduce `dark:` classes or any dark-mode CSS.
+- User-facing UI copy should be **Turkish** across the app.
+- Prefer consistent layout patterns:
+  - Page wrapper: `min-h-screen bg-background text-foreground`
+  - Content width: `max-w-4xl` (or `max-w-3xl` for auth/onboarding)
+- Icons: use `lucide-react` only.
+

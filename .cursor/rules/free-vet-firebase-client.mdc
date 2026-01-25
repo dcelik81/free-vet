@@ -1,0 +1,18 @@
+---
+description: Firebase client patterns (Auth/Firestore/Storage) for this app
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Firebase client patterns
+
+- Import Firebase from `@/lib/firebase` only.
+- Firebase code runs in **client components**; add `"use client"` when using Auth/Firestore/Storage.
+- Auth flow:
+  - Use `AuthProvider` (`src/components/AuthProvider.tsx`) as the single source of truth.
+  - Ensure a `users/{uid}` doc exists via `ensureUserDoc()` on login.
+  - Gate protected pages with `RequireAuth` (redirect to `/login`, enforce onboarding).
+- Firestore writes:
+  - Use `serverTimestamp()` for `createdAt`/`updatedAt` when possible.
+  - Keep docs minimal for hackathon; avoid complex schemas unless requested.
+
